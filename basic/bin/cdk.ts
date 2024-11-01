@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { CdkStack } from '../lib/cdk-stack';
+import { CdkStack } from './lib/cdk-stack';
+import { PhotoStack } from './lib/photo-stack';
+import { PhotosHandlerStack } from './lib/photo-handler-stack';
+import { BucketTagger } from './tagger';
 
 const app = new cdk.App();
 new CdkStack(app, 'CdkStack', {
@@ -19,3 +22,10 @@ new CdkStack(app, 'CdkStack', {
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 });
+const photoStack = new PhotoStack(app, 'PhotoStack', {});
+new PhotosHandlerStack(app, "PhotosHandlerStack", {
+  targetBucketArn: photoStack.photoBucketArn
+});
+
+const tagger = new BucketTagger('level', 'test');
+cdk.Aspects.of(app).add(tagger);
