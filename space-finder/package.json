@@ -1,0 +1,31 @@
+{
+  "name": "space-finder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "module": "es5",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "cdk"
+  ],
+  "author": "Shreehari C R",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^22.8.6",
+    "@types/uuid": "^10.0.0",
+    "aws-cdk": "^2.165.0",
+    "aws-cdk-lib": "^2.165.0",
+    "constructs": "^10.4.2",
+    "esbuild": "^0.24.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.685.0",
+    "uuid": "^11.0.2"
+  }
+}
